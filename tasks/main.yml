@@ -11,6 +11,7 @@
     state: 'absent'
     shell: '/bin/bash'
     remove: 'yes'
+  failed_when: False
 
 - name: 'Remove user home directory'
   file:
