@@ -11,7 +11,7 @@
     state: 'absent'
     shell: '/bin/bash'
     remove: 'yes'
-  failed_when: False
+  when: local_account
 
 - name: 'Remove user home directory'
   file:
@@ -35,7 +35,7 @@
     regexp: '{{ item.value.reg }}'
     line: '{{ item.value.line }}'
     state: 'absent'
-  with_dict: '{{ SUDOERS_USERS_AND_GROUPS.TO_REMOVE }}'
+  with_dict: '{{ TO_REMOVE }}'
   tags: 'sudoers'
 
 - name: 'all instances of atmosphere username removed from sudoers'
